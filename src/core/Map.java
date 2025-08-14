@@ -1,3 +1,5 @@
+package core;
+
 public class Map {
     private int[] cells;
     public Map() {

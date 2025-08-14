@@ -1,3 +1,5 @@
+package entity;
+
 public class GameCharacter {
     String type;
     String name;

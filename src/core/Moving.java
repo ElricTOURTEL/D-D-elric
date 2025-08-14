@@ -1,3 +1,7 @@
+package core;
+
+import message.Output;
+
 public class Moving {
     private Map map;
     private int playerPosition;

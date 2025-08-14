@@ -1,3 +1,5 @@
+package core;
+
 public class Dice {
     public Dice() {}
     public static int throwDice(){

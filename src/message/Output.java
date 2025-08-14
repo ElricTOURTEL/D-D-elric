@@ -1,3 +1,5 @@
+package message;
+
 import java.util.Scanner;
 
 public class Output {

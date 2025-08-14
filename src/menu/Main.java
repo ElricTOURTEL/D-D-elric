@@ -1,3 +1,8 @@
+package menu;
+import message.Output;
+import core.Map;
+import core.Moving;
+
 
 public class Main {
     public static void main(String[] args) {
