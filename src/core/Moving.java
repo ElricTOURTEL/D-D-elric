@@ -1,27 +1,44 @@
 package core;
 
+import entity.GameCharacter;
 import message.Output;
 
-public class Moving {
-    private Map map;
-    private int playerPosition;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Moving(Map map){
-        this.map = map;
-        this.playerPosition = 0;
+public class Moving {
+    private final Board board;
+    private final Output out;
+    private int position = 0;
+    private GameCharacter hero;
+
+    public Moving(Board board, Output out) {
+        this.board = board;
+        this.out = out;
     }
-    public void movePlayer(){
-        int steps = Dice.throwDice();
-        playerPosition += steps;
-        boolean finish=false;
-        if(playerPosition >= 64){
-            playerPosition = 63;
-            Output.endMessage();
-            finish=true;
-        }
-        Output.diceMessage(Dice.throwDice(), finish);
+
+    public void placeAtStart(GameCharacter c) {
+        this.hero = c;
+        this.position = 0;
+        board.getCell(0).add(c);
     }
-    public int getPlayerPosition(){
-        return playerPosition;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public int moveByDice() {
+        int roll = Dice.d6();
+        int oldPos = position;
+        int newPos = Math.min(oldPos + roll, board.size() - 1);
+
+        board.getCell(oldPos).remove(hero);
+        position = newPos;
+        board.getCell(newPos).add(hero);
+
+        out.moveMessage(hero.getName(), roll, oldPos, newPos);
+        board.getCell(newPos).onLand(hero, out);
+
+        return newPos;
     }
 }

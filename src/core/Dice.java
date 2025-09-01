@@ -1,8 +1,8 @@
 package core;
 
-public class Dice {
-    public Dice() {}
-    public static int throwDice(){
-        return (int) (Math.random()*6+1);
-    }
+import java.util.concurrent.ThreadLocalRandom;
+
+public final class Dice {
+    private Dice() {}
+    public static int d6() { return ThreadLocalRandom.current().nextInt(1,7); }
 }
