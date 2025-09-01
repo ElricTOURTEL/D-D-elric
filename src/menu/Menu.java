@@ -59,7 +59,7 @@ public class Menu {
         // --- Déplacements ---
         Moving moving = new Moving(board, output);
         moving.placeAtStart(hero);
-
+        // de 0 à 9
         final int lastIndex = board.size() - 1; // ici 9
         while (moving.getPosition() < lastIndex) {
             if (!output.askRoll()) {
