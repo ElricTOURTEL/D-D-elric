@@ -2,8 +2,11 @@ package entity;
 
 public class Wizard extends GameCharacter {
     public Wizard(String playerName) {
-        super(playerName, "entity.Wizard");
-        this.life=6;
-        this.strength=8;
+        super(playerName, 6, 8);
+    }
+    @Override
+    public String toString() {
+        return String.format("Personnage : %s (Wizard), Vie : %d, Force : %d",
+                name, life, strength);
     }
 }
