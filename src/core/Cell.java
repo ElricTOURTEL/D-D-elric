@@ -11,15 +11,16 @@ import java.util.List;
 public class Cell {
     private final int index;
     private final List<EntityBase> entities = new ArrayList<>();
+    private boolean currentFight;
 
-    public Cell(int index) { this.index = index; }
+    public Cell(int index) { this.index = index; this.currentFight = false; }
     public int getIndex() { return index; }
 
     public void add(EntityBase e) { entities.add(e); }
     public void remove(EntityBase e) { entities.remove(e); }
 
 
-    public void onLand(GameCharacter c, Output out) {
+    public boolean onLand(GameCharacter c, Output out) {
         List<EntityBase> snapshot = new ArrayList<>(entities);
         for (EntityBase e : snapshot) {
             if (e instanceof Weapon w) {
@@ -46,13 +47,30 @@ public class Cell {
         snapshot = new ArrayList<>(entities);
         for (EntityBase e : snapshot) {
             if (e instanceof Monster m) {
-                out.encounterMonster(c.getName() + " (force " + c.getStrength() + ")", m.getName(), m.getStrength(), m.getLife());
+                if(!currentFight){
+                    out.encounterMonster(c.getName() + " (force " + c.getStrength() + ")", m.getName(), m.getStrength(), m.getLife());
+                }
+                else{
+                    out.monsterOnCurrentCase(c.getName());
+                }
                 c.takeDamage(Math.max(1, m.getStrength()));
-                m.takeDamage(Math.max(1, m.getLife()));
+                m.takeDamage(Math.max(1, c.getStrength()));
                 out.damageTaken(m.getName(), c.getStrength(), m.getLife());
                 out.damageTaken(c.getName(), m.getStrength(), c.getLife());
+                if(!m.isAlive())
+                {
+                    entities.remove(e);
+                    currentFight = false;
+                    return false;
+                }
+                else{
+                    currentFight=true;
+                    return false;
+                }
+
             }
         }
+        return true;
     }
 
     @Override

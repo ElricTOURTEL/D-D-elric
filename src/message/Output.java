@@ -118,4 +118,7 @@ public class Output {
         System.out.printf("💀 %s est K.O.%n", who);
         System.out.println("Game Over");
     }
+    public void monsterOnCurrentCase(String who){
+        System.out.printf("%s n'avait pas battu le monstre précédent, un nouveau combat se lance%n", who);
+    }
 }

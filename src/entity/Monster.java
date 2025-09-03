@@ -12,7 +12,20 @@ public class Monster extends EntityBase {
 
     public int getLife() { return life; }
     public int getStrength() { return strength; }
-    public void takeDamage(int amount) { this.life -= amount; }
+    public boolean takeDamage(int amount) {
+        this.life -= amount;
+        if (this.life <= 0) {
+            this.life = 0;
+            return false;
+        }
+        return true;}
+    public boolean isAlive(){
+        if(this.life == 0)
+        {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public String toString() {

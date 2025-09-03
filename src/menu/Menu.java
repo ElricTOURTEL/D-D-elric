@@ -41,9 +41,9 @@ public class Menu {
         // --- Cases "surprise" & monstre que TU veux ---
         board.getCell(3).add(new Weapon("Épée en fer", 3));
         board.getCell(5).add(new Spell("Boule de feu", 5));
-        board.getCell(6).add(new Monster("Gobelin", 6, 2));
-        board.getCell(7).add(new Monster("Gobelin", 6, 2));
-        board.getCell(8).add(new Monster("Gobelin", 6, 2));
+        board.getCell(6).add(new Monster("Gobelin", 14, 2));
+        board.getCell(7).add(new Monster("Gobelin", 14, 2));
+        board.getCell(8).add(new Monster("Gobelin", 14, 2));
         // System.out.println(board);
 
         // --- Choix du perso ---

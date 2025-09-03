@@ -32,6 +32,11 @@ public class Moving {
         int oldPos = position;
         int newPos = Math.min(oldPos + roll, board.size() - 1);
 
+
+        if(!board.getCell(oldPos).onLand(hero, out)){
+            return oldPos;
+        }
+
         board.getCell(oldPos).remove(hero);
         position = newPos;
         board.getCell(newPos).add(hero);
