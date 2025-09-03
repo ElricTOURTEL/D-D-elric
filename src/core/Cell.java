@@ -5,7 +5,6 @@ import entity.item.*;
 import message.Output;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Cell {
@@ -19,6 +18,7 @@ public class Cell {
     public void add(EntityBase e) { entities.add(e); }
     public void remove(EntityBase e) { entities.remove(e); }
 
+//todo refacto onLand voir les principes de polymorphisme déplacé toute la méthode dans une interface entitybase et modification des classes enfants avec override
 
     public boolean onLand(GameCharacter c, Output out) {
         List<EntityBase> snapshot = new ArrayList<>(entities);
@@ -68,6 +68,23 @@ public class Cell {
                     return false;
                 }
 
+            }
+        }
+
+        // Logique Potion
+
+        snapshot = new ArrayList<>(entities);
+        for (EntityBase e : snapshot) {
+            if (e instanceof Potion p) {
+                out.pickupPotion(c.getName(), c.getLife(), p.getHealAmount());
+                if(c.healthUrself(p.getHealAmount()) > c.getMaxLife()){
+                    out.cannotDrinkPotion(c.getName(), p.getName());
+                }
+                else{
+                    c.healthUrself(p.getHealAmount());
+                    out.drinkPotion(c.getName(), c.getLife());
+                }
+                entities.remove(e);
             }
         }
         return true;

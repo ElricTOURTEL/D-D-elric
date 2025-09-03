@@ -121,4 +121,13 @@ public class Output {
     public void monsterOnCurrentCase(String who){
         System.out.printf("%s n'avait pas battu le monstre précédent, un nouveau combat se lance%n", who);
     }
+    public void pickupPotion(String who, int characterLife, int bonus){
+        System.out.printf("%s a trouvé une potion, vie actuelle (%d) celle ci rendra (%d)%n", who, characterLife, bonus);
+    }
+    public void drinkPotion(String who, int characterLife){
+        System.out.printf("%s s'est soigné, il a désormais (%d) points de vie%n", who, characterLife);
+    }
+    public void cannotDrinkPotion(String who, String potion){
+        System.out.printf("%s a tous ses points de vie, %s sans effet%n", who, potion);
+    }
 }

@@ -28,7 +28,8 @@ public class Moving {
     }
 
     public int moveByDice() {
-        int roll = Dice.d6();
+        // int roll = Dice.d6();
+        int roll = 1;
         int oldPos = position;
         int newPos = Math.min(oldPos + roll, board.size() - 1);
 

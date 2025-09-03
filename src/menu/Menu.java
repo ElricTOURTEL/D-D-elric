@@ -4,6 +4,7 @@ import core.Board;
 import core.Moving;
 import entity.GameCharacter;
 import entity.Monster;
+import entity.item.Potion;
 import entity.Warrior;
 import entity.Wizard;
 import entity.item.Spell;
@@ -36,14 +37,14 @@ public class Menu {
 
     public void start() {
         // --- Board de 10 cases ---
-        Board board = new Board(10);
+        Board board = new Board(64);
 
         // --- Cases "surprise" & monstre que TU veux ---
         board.getCell(3).add(new Weapon("Épée en fer", 3));
         board.getCell(5).add(new Spell("Boule de feu", 5));
-        board.getCell(6).add(new Monster("Gobelin", 14, 2));
-        board.getCell(7).add(new Monster("Gobelin", 14, 2));
-        board.getCell(8).add(new Monster("Gobelin", 14, 2));
+        board.getCell(6).add(new Monster("Gobelin", 5,2));
+        board.getCell(7).add(new Potion("Potion de vie", 2));
+        board.getCell(8).add(new Potion("Potion de vie", 2));
         // System.out.println(board);
 
         // --- Choix du perso ---
