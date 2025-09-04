@@ -3,7 +3,7 @@ import entity.GameCharacter;
 import entity.Wizard;
 
 public class Fireball extends Spell{
-    public Fireball(String name, int power) {
-        super(name, 4);
+    public Fireball() {
+        super("Boule de feu", 4);
     }
 }

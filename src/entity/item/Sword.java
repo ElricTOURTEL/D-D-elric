@@ -1,7 +1,7 @@
 package entity.item;
 
 public class Sword extends Weapon{
-    public Sword(String name, int damageBonus) {
-        super(name, 3);
+    public Sword() {
+        super("Epée des milles verités", 3);
     }
 }
