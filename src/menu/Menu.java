@@ -41,8 +41,8 @@ public class Menu {
         // --- Choix du perso ---
         String characterType = output.chooseCharacter();  // Guerrier/Magicien
         String name = output.nameCharacter();
-        String difficulty = output.chooseDifficulty();
-        output.resume(name, characterType, difficulty);
+        // String difficulty = output.chooseDifficulty();
+        output.resume(name, characterType, "Facile");
 
         GameCharacter hero = characterType.equalsIgnoreCase("Guerrier")
                 ? new Warrior(name)

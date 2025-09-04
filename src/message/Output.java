@@ -57,8 +57,26 @@ public class Output {
             }
         }
     }
+    public String fightOrRun() {
+        String choice;
+        while(true){
+            try {
+                System.out.println("Le monstre étant toujours présent que voulez-vous faire ?");
+                System.out.println("1- Combattre");
+                System.out.println("2- Fuir");
+                System.out.print("Votre choix ?");
+                choice = sc.nextLine().trim();
+                if (!choice.equalsIgnoreCase("Combattre") && !choice.equalsIgnoreCase("Fuir")) {
+                    throw new InvalidChoiceException("Entrée invalide ! Veuillez taper 'Combattre' ou 'Fuir'.");
+                }
+                return choice.substring(0, 1).toUpperCase() + choice.substring(1).toLowerCase();
+            } catch (InvalidChoiceException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
 
-    public String chooseDifficulty() {
+    /*public String chooseDifficulty() {
         String difficulty;
         while (true) {
             try {
@@ -82,7 +100,7 @@ public class Output {
                 System.out.println(e.getMessage());
             }
         }
-    }
+    }*/
     public void resume(String who, String charType, String difficulty) {
         System.out.printf("OK %s le %s joue en %s%n", who, charType, difficulty);
     }

@@ -8,6 +8,7 @@ import entity.item.potion.Potion;
 import entity.item.spell.Spell;
 import entity.item.weapon.Weapon;
 import entity.monster.Monster;
+import message.InvalidChoiceException;
 import message.Output;
 
 import java.util.ArrayList;
@@ -85,10 +86,18 @@ public class Cell {
                     return false;
                 }
                 else{
-                    c.takeDamage(Math.max(1, m.getStrength()));
-                    out.damageTaken(c.getName(), m.getStrength(), c.getLife());
-                    currentFight=true;
-                    return false;
+                    String choice = out.fightOrRun();
+                    if (choice.equalsIgnoreCase("Combattre")) {
+                        c.takeDamage(Math.max(1, m.getStrength()));
+                        out.damageTaken(c.getName(), m.getStrength(), c.getLife());
+                        currentFight=true;
+                        return false;
+                    }
+                    else{
+                        currentFight=false;
+                    }
+
+
                 }
 
             }
