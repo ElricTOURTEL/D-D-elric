@@ -23,7 +23,7 @@ public class Moving {
     public int getPosition() {
         return position;
     }
-
+    //todo Changer la logique de moveByDice pour se servir du return et garder les test logiques en dehors
     public int moveByDice() {
         int roll = Dice.d6();
         int oldPos = position;
