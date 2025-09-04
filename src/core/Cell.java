@@ -1,7 +1,13 @@
 package core;
 
 import entity.*;
-import entity.item.*;
+import entity.gamecharacter.GameCharacter;
+import entity.gamecharacter.Warrior;
+import entity.gamecharacter.Wizard;
+import entity.item.potion.Potion;
+import entity.item.spell.Spell;
+import entity.item.weapon.Weapon;
+import entity.monster.Monster;
 import message.Output;
 
 import java.util.ArrayList;
@@ -42,35 +48,6 @@ public class Cell {
                 }
             }
         }
-        // logique monster
-
-        snapshot = new ArrayList<>(entities);
-        for (EntityBase e : snapshot) {
-            if (e instanceof Monster m) {
-                if(!currentFight){
-                    out.encounterMonster(c.getName() + " (force " + c.getStrength() + ")", m.getName(), m.getStrength(), m.getLife());
-                }
-                else{
-                    out.monsterOnCurrentCase(c.getName());
-                }
-                c.takeDamage(Math.max(1, m.getStrength()));
-                m.takeDamage(Math.max(1, c.getStrength()));
-                out.damageTaken(m.getName(), c.getStrength(), m.getLife());
-                out.damageTaken(c.getName(), m.getStrength(), c.getLife());
-                if(!m.isAlive())
-                {
-                    entities.remove(e);
-                    currentFight = false;
-                    return false;
-                }
-                else{
-                    currentFight=true;
-                    return false;
-                }
-
-            }
-        }
-
         // Logique Potion
 
         snapshot = new ArrayList<>(entities);
@@ -85,6 +62,35 @@ public class Cell {
                     out.drinkPotion(c.getName(), c.getLife());
                 }
                 entities.remove(e);
+            }
+        }
+        // logique monster
+
+        snapshot = new ArrayList<>(entities);
+        for (EntityBase e : snapshot) {
+            if (e instanceof Monster m) {
+                if(!currentFight){
+                    out.encounterMonster(c.getName() + " (force " + c.getStrength() + ")", m.getName(), m.getStrength(), m.getLife());
+                }
+                else{
+                    out.monsterOnCurrentCase(c.getName());
+                }
+                m.takeDamage(Math.max(1, c.getStrength()));
+                out.damageTaken(m.getName(), c.getStrength(), m.getLife());
+
+                if(!m.isAlive())
+                {
+                    entities.remove(e);
+                    currentFight = false;
+                    return false;
+                }
+                else{
+                    c.takeDamage(Math.max(1, m.getStrength()));
+                    out.damageTaken(c.getName(), m.getStrength(), c.getLife());
+                    currentFight=true;
+                    return false;
+                }
+
             }
         }
         return true;

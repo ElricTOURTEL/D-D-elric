@@ -2,13 +2,9 @@ package menu;
 
 import core.Board;
 import core.Moving;
-import entity.GameCharacter;
-import entity.Monster;
-import entity.item.Potion;
-import entity.Warrior;
-import entity.Wizard;
-import entity.item.Spell;
-import entity.item.Weapon;
+import entity.gamecharacter.GameCharacter;
+import entity.gamecharacter.Warrior;
+import entity.gamecharacter.Wizard;
 import message.Output;
 
 import java.util.Scanner;
@@ -39,13 +35,8 @@ public class Menu {
         // --- Board de 10 cases ---
         Board board = new Board(64);
 
-        // --- Cases "surprise" & monstre que TU veux ---
-        board.getCell(3).add(new Weapon("Épée en fer", 3));
-        board.getCell(5).add(new Spell("Boule de feu", 5));
-        board.getCell(6).add(new Monster("Gobelin", 5,2));
-        board.getCell(7).add(new Potion("Potion de vie", 2));
-        board.getCell(8).add(new Potion("Potion de vie", 2));
-        // System.out.println(board);
+
+        // System.out.println(board); // outil de debug pour visualiser le board post generation
 
         // --- Choix du perso ---
         String characterType = output.chooseCharacter();  // Guerrier/Magicien
@@ -60,8 +51,8 @@ public class Menu {
         // --- Déplacements ---
         Moving moving = new Moving(board, output);
         moving.placeAtStart(hero);
-        // de 0 à 9
-        final int lastIndex = board.size() - 1; // ici 9
+
+        final int lastIndex = board.size() - 1;
         while (moving.getPosition() < lastIndex) {
             if (!output.askRoll()) {
                 System.out.println("Partie quittée.");

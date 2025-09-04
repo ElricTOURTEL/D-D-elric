@@ -1,10 +1,7 @@
 package core;
 
-import entity.GameCharacter;
+import entity.gamecharacter.GameCharacter;
 import message.Output;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Moving {
     private final Board board;
@@ -28,8 +25,7 @@ public class Moving {
     }
 
     public int moveByDice() {
-        // int roll = Dice.d6();
-        int roll = 1;
+        int roll = Dice.d6();
         int oldPos = position;
         int newPos = Math.min(oldPos + roll, board.size() - 1);
 
