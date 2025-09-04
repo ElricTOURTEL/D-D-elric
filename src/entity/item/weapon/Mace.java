@@ -1,4 +1,4 @@
-package entity.item;
+package entity.item.weapon;
 
 public class Mace extends Weapon{
     public Mace() {

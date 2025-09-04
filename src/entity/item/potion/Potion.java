@@ -1,8 +1,7 @@
-package entity.item;
+package entity.item.potion;
 
-import entity.EntityBase;
-import entity.GameCharacter;
-import entity.Warrior;
+import entity.gamecharacter.GameCharacter;
+import entity.item.Item;
 
 public class Potion extends Item {
     private final int healAmount;

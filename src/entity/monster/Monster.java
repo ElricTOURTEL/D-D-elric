@@ -1,4 +1,6 @@
-package entity;
+package entity.monster;
+
+import entity.EntityBase;
 
 public class Monster extends EntityBase {
     private int life;

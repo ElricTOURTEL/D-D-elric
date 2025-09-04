@@ -1,4 +1,4 @@
-package entity;
+package entity.monster;
 
 public class Sorcerer extends Monster{
     public Sorcerer() {

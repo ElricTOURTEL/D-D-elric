@@ -1,4 +1,6 @@
-package entity;
+package entity.gamecharacter;
+
+import entity.EntityBase;
 
 public abstract class GameCharacter extends EntityBase {
     protected int life;

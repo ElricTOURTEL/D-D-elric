@@ -1,6 +1,4 @@
-package entity.item;
-import entity.GameCharacter;
-import entity.Wizard;
+package entity.item.spell;
 
 public class Fireball extends Spell{
     public Fireball() {

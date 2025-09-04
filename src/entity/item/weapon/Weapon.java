@@ -1,6 +1,7 @@
-package entity.item;
-import entity.GameCharacter;
-import entity.Warrior;
+package entity.item.weapon;
+import entity.gamecharacter.GameCharacter;
+import entity.gamecharacter.Warrior;
+import entity.item.Item;
 
 public class Weapon extends Item {
     private final int damageBonus;
@@ -13,7 +14,7 @@ public class Weapon extends Item {
 
     @Override
     public boolean canBeUsedBy(GameCharacter c) {
-        return c instanceof Warrior; // <- sans enum, on vérifie le type
+        return c instanceof Warrior;
     }
 
     @Override

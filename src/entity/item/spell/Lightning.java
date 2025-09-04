@@ -1,4 +1,4 @@
-package entity.item;
+package entity.item.spell;
 
 public class Lightning extends Spell{
     public Lightning() {

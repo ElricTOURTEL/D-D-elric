@@ -1,7 +1,7 @@
-package entity;
+package entity.gamecharacter;
 
 public class Warrior extends GameCharacter {
-    public Warrior(String playerName) { super(playerName, 10, 5); }
+    public Warrior(String playerName) { super(playerName, 40, 5); }
 
 
     @Override

@@ -1,8 +1,8 @@
-package entity.item;
-import entity.GameCharacter;
-import entity.Wizard;
+package entity.item.spell;
+import entity.gamecharacter.GameCharacter;
+import entity.gamecharacter.Wizard;
 
-import entity.EntityBase;
+import entity.item.Item;
 
 public class Spell extends Item {
     private final int power;
