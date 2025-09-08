@@ -4,6 +4,10 @@ import entity.gamecharacter.Wizard;
 
 import entity.item.Item;
 
+/**
+ * Représente un sort que seul un {@link entity.gamecharacter.Wizard} peut utiliser.
+ * Contient la notion de puissance et hérite du nom depuis {@link Item}.
+ */
 public class Spell extends Item {
     private final int power;
 

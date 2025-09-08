@@ -3,6 +3,10 @@ import entity.gamecharacter.GameCharacter;
 import entity.gamecharacter.Warrior;
 import entity.item.Item;
 
+/**
+ * Représente une arme pouvant être équipée uniquement par un {@link entity.gamecharacter.Warrior}.
+ * Gère le nom et le bonus de dégâts associé à l'arme.
+ */
 public class Weapon extends Item {
     private final int damageBonus;
 

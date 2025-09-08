@@ -6,6 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 
+/**
+ * Gère les requêtes de base de données pour l'application.
+ * <p>
+ * Etablit la connexion à la base MySQL « dungeondragon » et fournit des méthodes
+ * utilitaires telles que la récupération des héros ({@link #getHeroes()}) ou la création de héros ({@link #createHeroes()}).
+ * <p>
+ * Les paramètres de connexion (URL, utilisateur, mot de passe) sont définis en constants privées.
+ */
 public class DbQuery {
     private final String URL = "jdbc:mysql://localhost:3306/dungeondragon";
     private final String USER = "root";

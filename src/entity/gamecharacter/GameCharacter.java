@@ -2,6 +2,12 @@ package entity.gamecharacter;
 
 import entity.EntityBase;
 
+/**
+ * Classe abstraite représentant un personnage jouable ou non du jeu.
+ * <p>
+ * Gère les propriétés communes (vie, force, vie maximale) et propose l'API pour
+ * gérer les effets (bonus force, soins, dégâts, mort).
+ */
 public abstract class GameCharacter extends EntityBase {
     protected int life;
     protected int strength;

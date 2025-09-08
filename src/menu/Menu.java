@@ -1,12 +1,14 @@
 package menu;
 
 import core.Board;
+import core.*;
 import core.Moving;
 import entity.gamecharacter.GameCharacter;
 import entity.gamecharacter.Warrior;
 import entity.gamecharacter.Wizard;
 import message.Output;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
@@ -49,7 +51,8 @@ public class Menu {
                 : new Wizard(name);
 
         // --- Déplacements ---
-        Moving moving = new Moving(board, output);
+        Dice dice = new RandomDice();
+        Moving moving = new Moving(board, output, dice);
         moving.placeAtStart(hero);
 
         final int lastIndex = board.size() - 1;

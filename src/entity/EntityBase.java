@@ -1,5 +1,10 @@
 package entity;
 
+/**
+ * Classe de base abstraite pour toutes les entités du jeu (personnages, monstres, objets...).
+ * <p>
+ * Gère le nom de l'entité et fournit une méthode {@link #toString()} commune.
+ */
 public abstract class EntityBase {
     protected final String name;
 

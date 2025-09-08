@@ -3,6 +3,10 @@ package entity.item.potion;
 import entity.gamecharacter.GameCharacter;
 import entity.item.Item;
 
+/**
+ * Représente une potion de soin utilisable par tous les personnages.
+ * Stocke le nom de la potion et la quantité de points de vie rendus.
+ */
 public class Potion extends Item {
     private final int healAmount;
 

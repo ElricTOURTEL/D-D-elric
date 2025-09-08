@@ -2,6 +2,10 @@ package entity.monster;
 
 import entity.EntityBase;
 
+/**
+ * Représente un monstre générique sur le plateau.
+ * Dispose de points de vie et de force, ainsi que d'une gestion du statut vivant/mort.
+ */
 public class Monster extends EntityBase {
     private int life;
     private final int strength;
